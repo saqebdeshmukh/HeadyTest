@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:HeadyTest.Views"
+       x:Class="HeadyTest.Views.MainPage"
+      
+      Shell.UnselectedColor="Gray"
+       Shell.TabBarUnselectedColor="Gray"
+       FlyoutBackgroundColor="White"
+       
+             Title="POPCORN">
+   
+
+    <TabBar Shell.BackgroundColor="White"  Shell.TitleColor="Red">
+        <Tab >
+            <ShellContent Title="All">
+                <views:PopularMoviesPage />
+            </ShellContent>
+            <ShellContent Title="Relevance">
+                <views:PopularMoviesPage />
+            </ShellContent>
+            <ShellContent Title="Action">
+                <views:PopularMoviesPage />
+            </ShellContent>
+            <ShellContent Title="Thrill">
+                <views:PopularMoviesPage />
+            </ShellContent>
+        </Tab>
+        
+    </TabBar>
+</Shell>

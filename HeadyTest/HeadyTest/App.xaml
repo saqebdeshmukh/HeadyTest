@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+             x:Class="HeadyTest.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+
+          
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#ffffff"/>
+            <Setter Property="BarTextColor" Value="Black"/>
+        </Style>
+        <Style x:Key="Shell"
+       TargetType="Element">
+            <Setter Property="Shell.TabBarBackgroundColor"
+            Value="#FFFFFF" />
+            <Setter Property="Shell.TabBarTitleColor"
+            Value="Red" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+            Value="Gray" />
+        </Style>
+
+    </Application.Resources>
+</prism:PrismApplication>

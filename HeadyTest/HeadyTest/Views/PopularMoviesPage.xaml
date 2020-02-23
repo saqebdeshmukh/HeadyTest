@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+              BackgroundColor="LightGray"
+             x:Class="HeadyTest.Views.PopularMoviesPage">
+    <Shell.TitleView>
+        <StackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,10" Orientation="Horizontal" VerticalOptions="Center">
+            <Image Source="popcorn.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+            <Label Text="POPCORN" HorizontalOptions="FillAndExpand" FontAttributes="Bold" VerticalTextAlignment="Center"/>
+            <Image Source="search.png"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+                   Margin="0,0,10,0"/>
+        </StackLayout>
+    </Shell.TitleView>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CollectionView ItemsSource="{Binding PopularMovies}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="15" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Image}" Grid.Column="0" Grid.RowSpan="5" Aspect="Fill"/>
+                            <Label Text="{Binding title}" Grid.Column="1" Grid.Row="1" TextColor="Black" FontAttributes="Bold"/>
+                            <Label FontAttributes="Bold" Grid.Column="1" Grid.Row="2">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="IMDB:  "/>
+                                        <Span Text="{Binding vote_average}"/>
+                                        <Span Text="/10"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label Grid.Column="1" Grid.Row="3" FontAttributes="Bold">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="Popularity:  "/>
+                                        <Span Text="{Binding popularityTwoDecimal}"/>
+                                        <Span Text="     "/>
+                                        <Span Text="Total Votes:  "/>
+                                        <Span Text="{Binding vote_count}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
