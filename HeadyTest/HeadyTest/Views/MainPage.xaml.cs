@@ -13,5 +13,10 @@ namespace HeadyTest.Views
         {
             InitializeComponent();
         }
+
+        private void Shell_Appearing(object sender, EventArgs e)
+        {
+            MessagingCenter.Send("", "OnAppearing");
+        }
     }
 }

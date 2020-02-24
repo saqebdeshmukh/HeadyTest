@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:HeadyTest.Views"
        x:Class="HeadyTest.Views.MainPage"
-      
       Shell.UnselectedColor="Gray"
        Shell.TabBarUnselectedColor="Gray"
        FlyoutBackgroundColor="White"
@@ -13,8 +12,9 @@
 
     <TabBar Shell.BackgroundColor="White"  Shell.TitleColor="Red">
         <Tab >
-            <ShellContent Title="All">
-                <views:PopularMoviesPage />
+            <ShellContent Title="All"
+                          Appearing="Shell_Appearing"
+                          ContentTemplate="{DataTemplate views:PopularMoviesPage}" >
             </ShellContent>
             <ShellContent Title="Relevance">
                 <views:PopularMoviesPage />

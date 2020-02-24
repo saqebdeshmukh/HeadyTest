@@ -204,5 +204,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\popcorn.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\filter.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
