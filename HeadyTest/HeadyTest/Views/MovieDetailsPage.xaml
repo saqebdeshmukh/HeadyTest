@@ -2,7 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+              BackgroundColor="WhiteSmoke"
+             
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="HeadyTest.Views.MovieDetailsPage">
-  
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image HeightRequest="250" Source="{Binding MovieDetail.Image}" Aspect="AspectFill"/>
+
+        <Frame Margin="20" Padding="15" CornerRadius="3">
+            <StackLayout>
+            <Label Text="{Binding MovieDetail.title}" FontSize="16" FontAttributes="Bold"/>
+                <Label Margin="0,10,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Release Date: "/>
+                            <Span Text="{Binding MovieDetail.ReleaseDete}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label FontAttributes="Bold">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="IMDB: "/>
+                            <Span Text="{Binding MovieDetail.vote_average}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding MovieDetail.gener}"/>
+                            <Span Text=" - "/>
+                            <Span Text="{Binding MovieDetail.TotalTime}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Text="{Binding MovieDetail.overview}" />
+
+            </StackLayout>
+        </Frame>
+        <Button Text="Continue to Checkout" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+    </StackLayout>
+    
 </ContentPage>

@@ -61,17 +61,17 @@ namespace HeadyTest.Services
 
         }
 
-        public async Task<Response<ObservableCollection<PopularMovieModel>>> GetMovieDetails(int Id)
+        public async Task<MovieDetails> GetMovieDetails(int Id)
         {
-            Response<ObservableCollection<PopularMovieModel>> PopularMovies = new Response<ObservableCollection<PopularMovieModel>>();
+            MovieDetails PopularMovies = new MovieDetails();
             HttpResponseMessage response = null;
             try
             {
-                response = await client.GetAsync(BaseAddress + "454626?api_key=" + APIKey + "&language=" + Language);
+                response = await client.GetAsync(BaseAddress + Id+"?api_key=" + APIKey + "&language=" + Language);
                 //if (response.IsSuccessStatusCode)
                 //{
                 var x = await response.Content.ReadAsStringAsync();
-                PopularMovies = JsonConvert.DeserializeObject<Response<ObservableCollection<PopularMovieModel>>>(x);
+                PopularMovies = JsonConvert.DeserializeObject<MovieDetails>(x);
                 //}
                 //else
                 //{
@@ -80,8 +80,8 @@ namespace HeadyTest.Services
             }
             catch (Exception)
             {
-                PopularMovies.success = false;
-                PopularMovies.status_message = "Sorry!!! Something went wrong please check after some time or check your internet connectivity and try agian.";
+                //PopularMovies.success = false;
+                //PopularMovies.status_message = "Sorry!!! Something went wrong please check after some time or check your internet connectivity and try agian.";
             }
 
             return PopularMovies;

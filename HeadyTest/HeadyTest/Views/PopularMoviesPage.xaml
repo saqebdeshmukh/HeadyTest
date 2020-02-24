@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
               BackgroundColor="WhiteSmoke"
+             x:Name="page"
              x:Class="HeadyTest.Views.PopularMoviesPage">
     <Shell.TitleView>
         <StackLayout HorizontalOptions="CenterAndExpand" Padding="0,10,0,10" Orientation="Horizontal" VerticalOptions="Center">
@@ -68,6 +69,9 @@
                                 </Label.FormattedText>
                             </Label>
                         </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BindingContext.MovieDetailCommand, Source={x:Reference page}}" CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

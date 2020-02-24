@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeadyTest.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -34,6 +35,18 @@ namespace HeadyTest.Models
     {
         public bool adult { get; set; }
         public string backdrop_path { get; set; }
+        public string Image
+        {
+            get => ApiServices.BaseImageAddress + backdrop_path;
+        }
+        public string ReleaseDete
+        {
+            get
+            {
+                var date = Convert.ToDateTime(release_date);
+                return date.ToString("MMMM dd yyyy");
+            }
+        }
         public object belongs_to_collection { get; set; }
         public int? budget { get; set; }
         public List<Genre> genres { get; set; }
@@ -41,10 +54,10 @@ namespace HeadyTest.Models
         {
             get
             {
-                string value = null;
+                string value = "";
                 genres.ForEach(val =>
                 {
-                    value = val + " |";
+                    value += val.name + " | ";
                 });
                 return value?.Remove(value.LastIndexOf('|'));
             }

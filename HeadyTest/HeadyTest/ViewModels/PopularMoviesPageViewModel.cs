@@ -33,7 +33,12 @@ namespace HeadyTest.ViewModels
             {
                 OnAppearing();
             });
-            MovieDetailCommand = new DelegateCommand<PopularMovieModel>()
+            MovieDetailCommand = new DelegateCommand<PopularMovieModel>((val) =>
+            {
+                var param = new NavigationParameters();
+                param.Add("Id", val.id);
+            NavigationService.NavigateAsync("MovieDetailsPage", param, useModalNavigation:true);
+            });
             LoadMoreDataCommand = new DelegateCommand(LoadData);
         }
 
