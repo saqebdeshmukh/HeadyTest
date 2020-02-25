@@ -6,7 +6,7 @@ using System.Text;
 namespace HeadyTest.Models
 {
 
-    public class PopularMovieModel
+    public class MovieModel
     {
         public double popularity { get; set; }
         public int vote_count { get; set; }
